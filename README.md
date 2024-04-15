@@ -7,4 +7,9 @@ Create a maze and solve it using python
 
 We start with a 64x64 array
 
+## How to run it
+
+```bash
+python3 main.py
+```
 
