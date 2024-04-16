@@ -21,3 +21,10 @@ source .venv/bin/activate
 python3 main.py
 ```
 
+# TODO
+
+- Create the most simple maze
+- Load it from a file
+- Solve it
+
+
