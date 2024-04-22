@@ -23,10 +23,11 @@ python3 main.py
 
 ## TODO
 
-- Print it
+- Find origin and goal func
 - Solve it
 
 ## DONE
 
+- Print it
 - Create the most simple maze
 - Load it from a file
