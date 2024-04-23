@@ -13,6 +13,7 @@ We start with a 64x64 array
 sudo apt install python3-venv
 python3 -m venv .venv
 source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
 ## How to run it
@@ -23,10 +24,11 @@ python3 main.py
 
 ## TODO
 
-- Print it
+- Find origin and goal func
 - Solve it
 
 ## DONE
 
+- Print it
 - Create the most simple maze
 - Load it from a file
