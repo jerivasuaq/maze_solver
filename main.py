@@ -19,13 +19,31 @@ def load_maze(path):
     return maze
 
 def findOO(maze):
-    pass
+    origin = None
+    goal = None
+
+    rows, cols = maze.shape
+    for row in range(rows):
+        for col in range(cols):
+            if maze[row, col] == 'x':
+                origin = (row, col)
+            elif maze[row, col] == 'F':
+                goal = (row, col)
+
+            if origin is not None and goal is not None:
+                break
+        if origin is not None and goal is not None:
+            break
+
+    return origin, goal
+
 
 def main():
     maze_path = "test_mazes/simple_maze.txt"
     maze = load_maze(maze_path)
     origin, goal = findOO(maze)
     print(maze)
+    print(origin, goal)
 
 if __name__=="__main__":
     main()
