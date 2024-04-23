@@ -13,6 +13,7 @@ We start with a 64x64 array
 sudo apt install python3-venv
 python3 -m venv .venv
 source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
 ## How to run it
