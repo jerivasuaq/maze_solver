@@ -29,11 +29,12 @@ pytest tests
 
 ## TODO
 
-- Find origin and goal func
-- Solve it
+- Create a function to genarate ramdom mazes in txt files
 
 ## DONE
 
 - Print it
 - Create the most simple maze
 - Load it from a file
+- Find origin and goal func
+- Solve it
