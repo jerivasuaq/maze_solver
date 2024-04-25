@@ -17,7 +17,7 @@ def load_maze(path):
 
     return maze
 
-def findOO(maze):
+def findOG(maze):
     origin = None
     goal = None
 
@@ -35,3 +35,31 @@ def findOO(maze):
             break
 
     return origin, goal
+
+def solve_maze_dfs(maze):
+    def dfs(current, path):
+        if current == goal:
+            return path
+        visited.add(current)
+
+        for move in moves:
+            next_pos = (current[0] + move[0], current[1] + move[1])
+            if (
+                0 <= next_pos[0] < rows
+                and 0 <= next_pos[1] < cols
+                and maze[next_pos[0], next_pos[1]] != '#'
+                and next_pos not in visited
+            ):
+                new_path = dfs(next_pos, path + [next_pos])
+                if new_path is not None:
+                    return new_path
+        return None
+
+    rows, cols = maze.shape
+    start, goal = findOG(maze)
+    moves = [(0, 1), (0, -1), (1, 0), (-1, 0)]  # right, left, down, up
+    visited = set()
+    return dfs(start, [start])
+
+
+
