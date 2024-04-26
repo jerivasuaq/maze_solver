@@ -1,6 +1,6 @@
 import numpy as np
 import pytest
-from maze import findOG, solve_maze_dfs
+from maze import findOG, generate_maze, save_maze_to_file, solve_maze_dfs
 
 
 def test_findOG_success():
@@ -84,4 +84,15 @@ def test_solver_simple():
     solution = solve_maze_dfs(maze)
     
     assert len(solution) > 1
+
+def test_maze_generator():
+    rows, cols = 10, 10  # Define the size of the maze
+    maze, start, finish = generate_maze(rows, cols)
+    save_maze_to_file(maze, 'random_maze.txt')
+
+    assert maze.shape == (rows, cols)
+    origin, goal = findOG(maze)
+    #assert origin != None
+    #assert goal != None
     # You can add more tests as you see necessary
+

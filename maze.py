@@ -1,4 +1,5 @@
 import numpy as np
+import random
 
 def load_maze(path):
     with open(path) as f:
@@ -61,5 +62,35 @@ def solve_maze_dfs(maze):
     visited = set()
     return dfs(start, [start])
 
+def generate_maze(rows, cols, path_ratio=0.6):
+    # Create an empty maze filled with walls ('#')
+    maze = np.full((rows, cols), '#', dtype=str)
+
+    # Randomly decide on the starting and finishing points
+    start = (random.randint(0, rows - 1), random.randint(0, cols - 1))
+    finish = (random.randint(0, rows - 1), random.randint(0, cols - 1))
+    maze[start[0], start[1]] = 'x'
+    maze[finish[0], finish[1]] = 'F'
+
+    # Determine the number of paths based on the path ratio
+    path_cells = int(rows * cols * path_ratio)
+
+    # Random walk to create paths
+    r, c = start
+    for _ in range(path_cells):
+        maze[r, c] = ' '
+        # Choose a random direction to move
+        move = random.choice([(0, 1), (1, 0), (0, -1), (-1, 0)])
+        r = max(0, min(rows - 1, r + move[0]))
+        c = max(0, min(cols - 1, c + move[1]))
+
+    return maze, start, finish
+
+def save_maze_to_file(maze, file_path):
+    with open(file_path, 'w') as file:
+        rows, cols = maze.shape
+        file.write(f"{rows},{cols}\n")  # Save dimensions
+        for row in range(rows):
+            file.write(''.join(maze[row, :]) + '\n')
 
 
