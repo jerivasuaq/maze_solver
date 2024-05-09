@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: maze_solver
+  annotations:
+    github.com/project-slug: jerivasuaq/maze_solver
+spec:
+  type: other
+  lifecycle: unknown
+  owner: guests
+
