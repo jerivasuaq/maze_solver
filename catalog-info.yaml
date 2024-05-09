@@ -4,8 +4,11 @@ metadata:
   name: maze_solver
   annotations:
     github.com/project-slug: jerivasuaq/maze_solver
+  links:
+    - url: https://dashboard.example.com
+      title: My Dashboard
+      icon: dashboard    
 spec:
   type: other
   lifecycle: unknown
   owner: guests
-
